@@ -1,64 +1,107 @@
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color: #EFF0F9; /* Light background */
+  color: #051319; /* Dark text for contrast */
 }
 
 .app {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Header Styles */
 header {
-  background: #333;
-  color: #fff;
-  padding: 10px 0;
+  background: #2D3A6E; /* Dark blue for header */
+  color: #EFF0F9; /* Light text for contrast */
+  padding: 15px 0;
   text-align: center;
+  border-radius: 10px 10px 0 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
 }
 
 nav a {
-  color: #fff;
-  margin: 0 10px;
+  color: #EFF0F9; /* Light text for contrast */
+  margin: 0 15px;
   text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
 nav a:hover {
+  color: #C9CEEC; /* Light purple for hover effect */
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  margin-top: auto; /* Push footer to the bottom */
+  padding: 15px;
+  background: #2D3A6E; /* Dark blue for footer */
+  color: #EFF0F9; /* Light text for contrast */
+  border-radius: 0 0 10px 10px;
+}
+
+footer a {
+  color: #C9CEEC; /* Light purple for links */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
   text-decoration: underline;
 }
 
-footer {
-  text-align: center;
-  margin-top: 20px;
-  padding: 10px;
-  background: #333;
-  color: #fff;
-}
-
+/* Form Container Styles */
 .form-container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: #EFF0F9; /* Light background */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
-input, button {
+/* Input and Button Styles */
+input,
+textarea,
+button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin: 10px 0;
-  border: 1px solid #ccc;
+  border: 1px solid #C9CEEC; /* Light purple border */
   border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2D3A6E; /* Dark blue for focus */
+  outline: none;
 }
 
 button {
-  background: #333;
-  color: #fff;
+  background: #2D3A6E; /* Dark blue for buttons */
+  color: #EFF0F9; /* Light text for contrast */
+  border: none;
   cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
 button:hover {
-  background: #555;
+  background: #C9CEEC; /* Light purple for hover effect */
+  color: #051319; /* Dark text for contrast */
 }
 
 /* Dashboard Styles */
@@ -68,31 +111,64 @@ ul {
 }
 
 li {
-  background: #fff;
+  background: #EFF0F9; /* Light background */
   margin: 10px 0;
-  padding: 10px;
+  padding: 15px;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+li:hover {
+  transform: translateY(-2px);
 }
 
 li a {
   text-decoration: none;
-  color: #333;
+  color: #2D3A6E; /* Dark blue for links */
+  font-weight: bold;
 }
 
 li a:hover {
-  text-decoration: underline;
+  color: #C9CEEC; /* Light purple for hover effect */
 }
 
 /* AuctionItem Styles */
 .message {
-  color: red;
+  color: #D9534F; /* Red for error messages */
   font-weight: bold;
+  margin-top: 10px;
 }
 
 /* PostAuction Styles */
 textarea {
-  width: 100%;
   height: 100px;
   resize: vertical;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .app {
+    padding: 15px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav a {
+    margin: 0 10px;
+    font-size: 0.9rem;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  input,
+  textarea,
+  button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
 }

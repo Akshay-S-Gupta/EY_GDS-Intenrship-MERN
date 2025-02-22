@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer>
-      <p>&copy; 2024 Auction App. All rights reserved.</p>
+      <p>&copy; Developed by <a href="https://github.com/Akshay-S-Gupta" target="_blank">Akshay-S-Gupta</a>. All rights reserved.</p>
     </footer>
   );
 }
