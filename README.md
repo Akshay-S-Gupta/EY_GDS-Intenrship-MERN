@@ -67,25 +67,33 @@ A simple and beginner-friendly auction application built with **React**, **Vite*
 
 ```
 Online-Auction-MERN/
-├── public/
-│   ├── favicon.jpg
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   ├── Header.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Landing.jsx
-│   │   ├── Signup.jsx
-│   │   ├── Signin.jsx
-│   │   ├── Dashboard.jsx
-│   │   ├── AuctionItem.jsx
-│   │   └── PostAuction.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── index.html
-├── vite.config.js
-├── package.json
+├── Results/
+|   ├── Screenshot_Home.png
+|   ├── Screenshot_SignIn.png
+|   └── Screenshot_SignUp.png
+|
+├── frontend/
+|   ├── public/
+|   │   ├── favicon.jpg
+|   │   └── favicon.ico
+|   ├── src/
+|   │   ├── components/
+|   │   │   ├── Header.jsx
+|   │   │   ├── Footer.jsx
+|   │   │   ├── Landing.jsx
+|   │   │   ├── Signup.jsx
+|   │   │   ├── Signin.jsx
+|   │   │   ├── Dashboard.jsx
+|   │   │   ├── AuctionItem.jsx
+|   │   │   ├── ProtectedRoute.jsx
+|   │   │   └── PostAuction.jsx
+|   │   ├── App.jsx
+|   │   ├── main.jsx
+|   │   └── index.css
+|   ├── index.html
+|   ├── vite.config.js
+|   └── package.json
+|
 └── README.md
 ```
 
