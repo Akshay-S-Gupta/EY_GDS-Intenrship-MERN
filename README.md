@@ -111,5 +111,3 @@ Online-Auction-MERN/
 ---
 
 ## Developed by [Akshay_S_Gupta](https://www.linkedin.com/in/akshaysgupta/)
-
-```
