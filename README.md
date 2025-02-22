@@ -59,7 +59,7 @@ A simple and beginner-friendly auction application built with **React**, **Vite*
    - `npm run dev`
 
 4. **Open the App**:
-   - The app will be running at `http://localhost:5173/` (or the port specified in `vite.config.js`).
+   - The app will run at `http://localhost:5173/` (or the port specified in `vite.config.js`).
 
 ---
 
@@ -102,10 +102,14 @@ Online-Auction-MERN/
 ### Landing Page
 ![Landing Page](/Results/Screenshot_Home.png)
 
-### Signup Page
-![Signup Page](/Results/Screenshot_SignUp.png)
+### SignUp Page
+![SignUp Page](/Results/Screenshot_SignUp.png)
 
-### Signin
-![Signin](/Results/Screenshot_SignIn.png)
+### SignIn
+![SignIn_Page](/Results/Screenshot_SignIn.png)
 
 ---
+
+## Developed by [Akshay_S_Gupta](https://www.linkedin.com/in/akshaysgupta/)
+
+```
