@@ -100,12 +100,15 @@ Online-Auction-MERN/
 ## Screenshots
 
 ### Landing Page
-![Landing Page]
+![Landing Page]![Screenshot_Home](https://github.com/user-attachments/assets/28f50564-862b-43d2-bfc4-05ff56945940)
+
 
 ### Signup Page
-![Signup Page]
+![Signup Page]![Screenshot_SignUp](https://github.com/user-attachments/assets/70a53d9e-9a7a-4d88-9437-693418d72ab8)
+
 
 ### Dashboard
-![Dashboard]
+![Dashboard]![Screenshot_SignIn](https://github.com/user-attachments/assets/fb81fcfd-37c5-4f85-a29f-ca96ea79ae54)
+
 
 ---
