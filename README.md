@@ -100,12 +100,12 @@ Online-Auction-MERN/
 ## Screenshots
 
 ### Landing Page
-![Landing Page]
+![Landing Page](/Results/Screenshot_Home.png)
 
 ### Signup Page
-![Signup Page]
+![Signup Page](/Results/Screenshot_SignUp.png)
 
-### Dashboard
-![Dashboard]
+### Signin
+![Signin](/Results/Screenshot_SignIn.png)
 
 ---
