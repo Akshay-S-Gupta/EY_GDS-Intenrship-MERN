@@ -15,20 +15,15 @@ A simple and beginner-friendly auction application built with **React**, **Vite*
    - Users can post new auction items with details like item name, description, starting bid, and closing time.
    - Users can view a list of auction items on the dashboard.
    - Users can place bids on specific auction items.
-   - Users can edit or delete auction items they have posted.
+   - Users can edit or delete auction items.
 
-3. **Bidding System**:
-   - Users can place bids on auction items.
-   - The system ensures bids are higher than the current bid.
-   - Automatically closes auctions when the closing time is reached.
-
-4. **Error Handling**:
+3. **Error Handling**:
    - Displays error messages as alerts for invalid inputs or API errors.
 
-5. **Loading States**:
+4. **Loading States**:
    - Shows loading indicators while fetching data or performing actions.
 
-6. **Responsive Design**:
+5. **Responsive Design**:
    - Basic styling for a clean and user-friendly interface.
 
 ---
@@ -41,7 +36,7 @@ A simple and beginner-friendly auction application built with **React**, **Vite*
   - React Router (for routing)
   - Axios (for API requests)
 - **Backend**:
-  - Express.js (for REST API)
+  - Express.js
   - MongoDB (for database)
   - Mongoose (for MongoDB object modeling)
   - bcryptjs (for password hashing)
@@ -62,67 +57,93 @@ A simple and beginner-friendly auction application built with **React**, **Vite*
 ### Steps to Run the Project
 
 1. **Clone the Repository**:
-   `git clone https://github.com/Akshay-S-Gupta/Online-Auction-MERN.git`
-   `cd Online-Auction-MERN`
-
+   ```
+   git clone https://github.com/Akshay-S-Gupta/EY_GDS-Intenrship-MERN.git
+   cd EY_GDS-Intenrship-MERN
+   ```
 
 2. **Install Dependencies**:
-   `npm install`
+   - For the frontend:
+     ```
+     cd frontend
+     npm install
+     ```
+   - For the backend:
+     ```
+     cd backend
+     npm install
+     ```
 
-3. **Start the Development Server**:
-   `npm run dev`
+3. **Start the Backend Server**:
+   - Navigate to the `backend` directory:
+     ```
+     cd backend
+     npm run dev
+     ```
+   - The backend will run at `http://localhost:5001`.
 
-4. **Open the App**:
-   - The app will run at `http://localhost:5173/` (or the port specified in `vite.config.js`).
+4. **Start the Frontend Development Server**:
+   - Navigate to the `frontend` directory:
+     ```
+     cd frontend
+     npm run dev
+     ```
+   - The frontend will run at `http://localhost:5173`.
+
+5. **Open the App**:
+   - Access the app at `http://localhost:5173`.
 
 ---
 
 ## Project Structure
 
-### Frontend
 ```
-frontend/
-├── public/
-│   ├── favicon.jpg
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   ├── Header.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Landing.jsx
-│   │   ├── Signup.jsx
-│   │   ├── Signin.jsx
-│   │   ├── Dashboard.jsx
-│   │   ├── AuctionItem.jsx
-│   │   ├── ProtectedRoute.jsx
-│   │   └── PostAuction.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── index.html
-├── vite.config.js
-└── package.json
-```
-
-### Backend
-```
-backend/
-├── models/
-│   ├── users.js
-│   └── auctions.js
-├── config/
-│   └── dbconfig.js
-├── routes/
-│   ├── authRoutes.js
-│   ├── auctionRoutes.js
-│   └── bidRoutes.js
-├── middleware/
-│   └── authenticate.js
-├── db/
-│   └── dbconnect.js
-├── server.js
-├── .env
-└── package.json
+EY_GDS-Intenrship-MERN/
+├── backend/
+│   ├── config/
+│   │   └── dbconfig.js
+│   ├── db/
+│   │   └── db.js
+│   ├── middleware/
+│   │   └── authenticate.js
+│   ├── models/
+│   │   └── models.js
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── auctionRoutes.js
+│   │   └── bidRoutes.js
+│   ├── server.js
+│   ├── .env
+│   └── package.json
+│
+├── frontend/
+│   ├── public/
+│   │   ├── favicon.jpg
+│   │   └── favicon.ico
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Header.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── Landing.jsx
+│   │   │   ├── Signup.jsx
+│   │   │   ├── Signin.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── AuctionItem.jsx
+│   │   │   ├── ProtectedRoute.jsx
+│   │   │   └── PostAuction.jsx
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   ├── index.html
+│   ├── vite.config.js
+│   └── package.json
+│
+├── Results/
+│   ├── Screenshot_Home.png
+│   ├── Screenshot_SignIn.png
+│   └── Screenshot_SignUp.png
+│
+└── README.md
 ```
 
 ---
@@ -137,24 +158,6 @@ backend/
 
 ### SignIn Page
 ![SignIn Page](/Results/Screenshot_SignIn.png)
-
----
-
-## API Endpoints
-
-### Authentication
-- **POST `/api/signup`**: Register a new user.
-- **POST `/api/signin`**: Authenticate a user and return a JWT token.
-
-### Auction Management
-- **POST `/api/auction`**: Create a new auction item (protected route).
-- **GET `/api/auctions`**: Get all auction items.
-- **GET `/api/auctions/:id`**: Get a single auction item by ID.
-- **PUT `/api/auctions/:id`**: Edit an auction item (protected route).
-- **DELETE `/api/auctions/:id`**: Delete an auction item (protected route).
-
-### Bidding
-- **POST `/api/bid/:id`**: Place a bid on an auction item (protected route).
 
 ---
 
