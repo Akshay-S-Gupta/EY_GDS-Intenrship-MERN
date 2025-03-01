@@ -1,6 +1,6 @@
 # Auction App
 
-A simple and beginner-friendly auction application built with **React**, **Vite**, and **React Router**. This app allows users to sign up, sign in, post auctions, place bids, and view auction details.
+A simple and beginner-friendly auction application built with **React**, **Vite**, **React Router**, and **Express.js**. This app allows users to sign up, sign in, post auctions, place bids, and view auction details.
 
 ---
 
@@ -8,20 +8,27 @@ A simple and beginner-friendly auction application built with **React**, **Vite*
 
 1. **Authentication**:
    - Users can sign up and sign in.
+   - Passwords are securely hashed using **bcryptjs**.
    - Protected routes for authenticated users (e.g., `/dashboard`, `/post-auction`).
 
 2. **Auction Management**:
    - Users can post new auction items with details like item name, description, starting bid, and closing time.
    - Users can view a list of auction items on the dashboard.
    - Users can place bids on specific auction items.
+   - Users can edit or delete auction items they have posted.
 
-3. **Error Handling**:
+3. **Bidding System**:
+   - Users can place bids on auction items.
+   - The system ensures bids are higher than the current bid.
+   - Automatically closes auctions when the closing time is reached.
+
+4. **Error Handling**:
    - Displays error messages as alerts for invalid inputs or API errors.
 
-4. **Loading States**:
+5. **Loading States**:
    - Shows loading indicators while fetching data or performing actions.
 
-5. **Responsive Design**:
+6. **Responsive Design**:
    - Basic styling for a clean and user-friendly interface.
 
 ---
@@ -33,6 +40,12 @@ A simple and beginner-friendly auction application built with **React**, **Vite*
   - Vite (for fast development and builds)
   - React Router (for routing)
   - Axios (for API requests)
+- **Backend**:
+  - Express.js (for REST API)
+  - MongoDB (for database)
+  - Mongoose (for MongoDB object modeling)
+  - bcryptjs (for password hashing)
+  - jsonwebtoken (for authentication)
 - **Styling**:
   - Plain CSS (no external libraries)
 
@@ -44,58 +57,98 @@ A simple and beginner-friendly auction application built with **React**, **Vite*
 
 - Node.js (v16 or higher)
 - npm (comes with Node.js)
+- MongoDB (running locally or remotely)
 
 ### Steps to Run the Project
 
 1. **Clone the Repository**:
-   `git clone https://github.com/Akshay-S-Gupta/Online-Auction-MERN.git`
-   `cd Online-Auction-MERN`
-
+   ```bash
+   git clone https://github.com/Akshay-S-Gupta/Online-Auction-MERN.git
+   cd Online-Auction-MERN
+   ```
 
 2. **Install Dependencies**:
-   `npm install`
+   - For the frontend:
+     ```bash
+     cd frontend
+     npm install
+     ```
+   - For the backend:
+     ```bash
+     cd backend
+     npm install
+     ```
 
-3. **Start the Development Server**:
-   `npm run dev`
+3. **Start the Backend Server**:
+   - Navigate to the `backend` directory:
+     ```bash
+     cd backend
+     npm run dev
+     ```
+   - The backend will run at `http://localhost:5001`.
 
-4. **Open the App**:
-   - The app will run at `http://localhost:5173/` (or the port specified in `vite.config.js`).
+4. **Start the Frontend Development Server**:
+   - Navigate to the `frontend` directory:
+     ```bash
+     cd frontend
+     npm run dev
+     ```
+   - The frontend will run at `http://localhost:5173`.
+
+5. **Open the App**:
+   - Access the app in your browser at `http://localhost:5173`.
 
 ---
 
 ## Project Structure
 
+### Frontend
 ```
-Online-Auction-MERN/
-├── Results/
-|   ├── Screenshot_Home.png
-|   ├── Screenshot_SignIn.png
-|   └── Screenshot_SignUp.png
-|
-├── frontend/
-|   ├── public/
-|   │   ├── favicon.jpg
-|   │   └── favicon.ico
-|   ├── src/
-|   │   ├── components/
-|   │   │   ├── Header.jsx
-|   │   │   ├── Footer.jsx
-|   │   │   ├── Landing.jsx
-|   │   │   ├── Signup.jsx
-|   │   │   ├── Signin.jsx
-|   │   │   ├── Dashboard.jsx
-|   │   │   ├── AuctionItem.jsx
-|   │   │   ├── ProtectedRoute.jsx
-|   │   │   └── PostAuction.jsx
-|   │   ├── App.jsx
-|   │   ├── main.jsx
-|   │   └── index.css
-|   ├── index.html
-|   ├── vite.config.js
-|   └── package.json
-|
-└── README.md
+frontend/
+├── public/
+│   ├── favicon.jpg
+│   └── favicon.ico
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Landing.jsx
+│   │   ├── Signup.jsx
+│   │   ├── Signin.jsx
+│   │   ├── Dashboard.jsx
+│   │   ├── AuctionItem.jsx
+│   │   ├── ProtectedRoute.jsx
+│   │   └── PostAuction.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── index.html
+├── vite.config.js
+└── package.json
 ```
+
+### Backend
+```
+backend/
+├── models/
+│   ├── users.js
+│   └── auctions.js
+├── config/
+│   └── dbconfig.js
+├── routes/
+│   ├── authRoutes.js
+│   ├── auctionRoutes.js
+│   └── bidRoutes.js
+├── middleware/
+│   └── authenticate.js
+├── db/
+│   └── dbconnect.js
+├── server.js
+├── .env
+└── package.json
+```
+
+---
 
 ## Screenshots
 
@@ -105,9 +158,27 @@ Online-Auction-MERN/
 ### SignUp Page
 ![SignUp Page](/Results/Screenshot_SignUp.png)
 
-### SignIn
-![SignIn_Page](/Results/Screenshot_SignIn.png)
+### SignIn Page
+![SignIn Page](/Results/Screenshot_SignIn.png)
 
 ---
 
-## Developed by [Akshay_S_Gupta](https://www.linkedin.com/in/akshaysgupta/)
+## API Endpoints
+
+### Authentication
+- **POST `/api/signup`**: Register a new user.
+- **POST `/api/signin`**: Authenticate a user and return a JWT token.
+
+### Auction Management
+- **POST `/api/auction`**: Create a new auction item (protected route).
+- **GET `/api/auctions`**: Get all auction items.
+- **GET `/api/auctions/:id`**: Get a single auction item by ID.
+- **PUT `/api/auctions/:id`**: Edit an auction item (protected route).
+- **DELETE `/api/auctions/:id`**: Delete an auction item (protected route).
+
+### Bidding
+- **POST `/api/bid/:id`**: Place a bid on an auction item (protected route).
+
+---
+
+## Developed by [Akshay S Gupta](https://www.linkedin.com/in/akshaysgupta/)
