@@ -62,41 +62,18 @@ A simple and beginner-friendly auction application built with **React**, **Vite*
 ### Steps to Run the Project
 
 1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/Akshay-S-Gupta/Online-Auction-MERN.git
-   cd Online-Auction-MERN
-   ```
+   `git clone https://github.com/Akshay-S-Gupta/Online-Auction-MERN.git`
+   `cd Online-Auction-MERN`
+
 
 2. **Install Dependencies**:
-   - For the frontend:
-     ```bash
-     cd frontend
-     npm install
-     ```
-   - For the backend:
-     ```bash
-     cd backend
-     npm install
-     ```
+   `npm install`
 
-3. **Start the Backend Server**:
-   - Navigate to the `backend` directory:
-     ```bash
-     cd backend
-     npm run dev
-     ```
-   - The backend will run at `http://localhost:5001`.
+3. **Start the Development Server**:
+   `npm run dev`
 
-4. **Start the Frontend Development Server**:
-   - Navigate to the `frontend` directory:
-     ```bash
-     cd frontend
-     npm run dev
-     ```
-   - The frontend will run at `http://localhost:5173`.
-
-5. **Open the App**:
-   - Access the app in your browser at `http://localhost:5173`.
+4. **Open the App**:
+   - The app will run at `http://localhost:5173/` (or the port specified in `vite.config.js`).
 
 ---
 
