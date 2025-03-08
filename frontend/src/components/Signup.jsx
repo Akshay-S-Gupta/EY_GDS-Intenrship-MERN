@@ -19,7 +19,7 @@ function Signup() {
     }
 
     try {
-      await axios.post('http://localhost:5001/signup', { username, password });
+      await axios.post('http://localhost:5001/api/signup', { username, password });
       alert('Signup successful! Please sign in.');
       navigate('/signin');
     } catch (err) {

@@ -1,10 +1,10 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { User } = require('../models'); // Import User model from models.js
+const { User } = require('../models/models');
 
 const router = express.Router();
-const SECRET_KEY = 'my_super_secret_123!';
+const SECRET_KEY = process.env.SECRET_KEY;
 
 // Signup Route
 router.post('/signup', async (req, res) => {
@@ -50,6 +50,11 @@ router.post('/signin', async (req, res) => {
     console.error('Signin Error:', error);
     res.status(500).json({ message: 'Internal Server Error' });
   }
+});
+
+// Logout Route
+router.post('/logout', (req, res) => {
+  res.status(200).json({ message: 'Logged out successfully' });
 });
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const express = require('express');
-const { AuctionItem } = require('../models'); // Import AuctionItem model from models.js
+const { AuctionItem } = require('../models/models');
 const authenticate = require('../middleware/authenticate');
 
 const router = express.Router();
@@ -16,6 +16,7 @@ router.post('/auction', authenticate, async (req, res) => {
     const newItem = new AuctionItem({
       itemName,
       description,
+      startingBid,
       currentBid: startingBid,
       highestBidder: '',
       closingTime,

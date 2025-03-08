@@ -10,7 +10,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const res = await axios.get('http://localhost:5001/auctions');
+        const res = await axios.get('http://localhost:5001/api/auctions');
         setItems(res.data);
       } catch (err) {
         setError('Error fetching auctions. Please try again later.');
@@ -39,7 +39,7 @@ function Dashboard() {
         {items.map((item) => (
           <li key={item._id}>
             <Link to={`/auction/${item._id}`}>
-              {item.itemName} - Current Bid: ${item.currentBid}
+              {item.itemName} - Current Bid: ₹{item.currentBid.toLocaleString('en-IN')} {/* Display in INR */}
             </Link>
           </li>
         ))}

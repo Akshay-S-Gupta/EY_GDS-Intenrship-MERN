@@ -13,7 +13,7 @@ function AuctionItem() {
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const res = await axios.get(`http://localhost:5001/auctions/${id}`);
+        const res = await axios.get(`http://localhost:5001/api/auctions/${id}`);
         setItem(res.data);
       } catch (err) {
         setError('Error fetching auction item. Please try again later.');
@@ -25,8 +25,13 @@ function AuctionItem() {
   }, [id]);
 
   const handleBid = async () => {
-    const username = prompt('Enter your username to place a bid:');
-    if (!username) return;
+    const token = localStorage.getItem('authToken'); // Get token from localStorage
+    const username = localStorage.getItem('username'); // Get username from localStorage
+
+    if (!token || !username) {
+      setMessage('You must be signed in to place a bid.');
+      return;
+    }
 
     if (bid <= item.currentBid) {
       setMessage('Bid must be higher than the current bid.');
@@ -34,11 +39,18 @@ function AuctionItem() {
     }
 
     try {
-      const res = await axios.post(`http://localhost:5001/bid/${id}`, { bid, username });
+      const res = await axios.post(
+        `http://localhost:5001/api/bid/${id}`,
+        { bid, username },
+        {
+          headers: { Authorization: `Bearer ${token}` }, // Include token in headers
+        }
+      );
       setMessage(res.data.message);
       if (res.data.winner) {
         setMessage(`Auction closed. Winner: ${res.data.winner}`);
       }
+      setItem(res.data.item); // Update the item with the new bid
     } catch (err) {
       setMessage('Error placing bid. Please try again.');
     }
@@ -56,7 +68,7 @@ function AuctionItem() {
     <div>
       <h2>{item.itemName}</h2>
       <p>{item.description}</p>
-      <p>Current Bid: ${item.currentBid}</p>
+      <p>Current Bid: ₹{item.currentBid.toLocaleString('en-IN')}</p> {/* Display in INR */}
       <p>Highest Bidder: {item.highestBidder || 'No bids yet'}</p>
       <input
         type="number"

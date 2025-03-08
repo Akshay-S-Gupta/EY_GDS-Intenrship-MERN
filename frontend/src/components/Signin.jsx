@@ -19,8 +19,9 @@ function Signin() {
     }
 
     try {
-      const res = await axios.post('http://localhost:5001/signin', { username, password });
+      const res = await axios.post('http://localhost:5001/api/signin', { username, password });
       localStorage.setItem('authToken', res.data.token);
+      localStorage.setItem('username', username); // Store username
       navigate('/dashboard');
     } catch (err) {
       alert(err.response?.data?.message || 'Invalid credentials. Please try again.');

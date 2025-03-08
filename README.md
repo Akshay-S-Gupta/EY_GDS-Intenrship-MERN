@@ -10,6 +10,7 @@ A simple and beginner-friendly auction application built with **React**, **Vite*
    - Users can sign up and sign in.
    - Passwords are securely hashed using **bcryptjs**.
    - Protected routes for authenticated users (e.g., `/dashboard`, `/post-auction`).
+   - Users can log out, which clears their session and redirects them to the landing page.
 
 2. **Auction Management**:
    - Users can post new auction items with details like item name, description, starting bid, and closing time.
@@ -25,6 +26,10 @@ A simple and beginner-friendly auction application built with **React**, **Vite*
 
 5. **Responsive Design**:
    - Basic styling for a clean and user-friendly interface.
+
+6. **Currency and Date Format**:
+   - All monetary values are displayed in **Indian Rupees (₹)**.
+   - Dates and times are displayed in **Indian Standard Time (IST)**.
 
 ---
 
@@ -158,6 +163,22 @@ EY_GDS-Intenrship-MERN/
 
 ### SignIn Page
 ![SignIn Page](/Results/Screenshot_SignIn.png)
+
+---
+
+## Key Updates
+
+1. **Logout Feature**:
+   - Added a **logout button** in the header.
+   - Users can log out, which clears their session and redirects them to the landing page.
+
+2. **Currency and Date Format**:
+   - All monetary values are displayed in **Indian Rupees (₹)**.
+   - Dates and times are displayed in **Indian Standard Time (IST)**.
+
+3. **Improved UI**:
+   - Added labels for all input fields in the **Post Auction** page.
+   - Enhanced the dashboard with better-organized auction item details.
 
 ---
 

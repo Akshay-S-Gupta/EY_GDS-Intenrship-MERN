@@ -1,6 +1,7 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./db');
+const connectDB = require('./db/db');
 const authRoutes = require('./routes/authRoutes');
 const auctionRoutes = require('./routes/auctionRoutes');
 const bidRoutes = require('./routes/bidRoutes');
@@ -12,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-connectDB();
+connectDB().catch(err => console.error('MongoDB connection error:', err));
 
 // Routes
 app.use('/api', authRoutes);

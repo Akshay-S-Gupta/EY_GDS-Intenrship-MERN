@@ -21,7 +21,7 @@ function PostAuction() {
 
     try {
       await axios.post(
-        'http://localhost:5001/auction',
+        'http://localhost:5001/api/auction',
         { itemName, description, startingBid, closingTime },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -38,32 +38,52 @@ function PostAuction() {
       <h2>Post New Auction</h2>
       {error && <p className="error">{error}</p>}
       <form onSubmit={handlePostAuction}>
-        <input
-          type="text"
-          placeholder="Item Name"
-          value={itemName}
-          onChange={(e) => setItemName(e.target.value)}
-          required
-        />
-        <textarea
-          placeholder="Item Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          required
-        ></textarea>
-        <input
-          type="number"
-          placeholder="Starting Bid"
-          value={startingBid}
-          onChange={(e) => setStartingBid(e.target.value)}
-          required
-        />
-        <input
-          type="datetime-local"
-          value={closingTime}
-          onChange={(e) => setClosingTime(e.target.value)}
-          required
-        />
+        <div>
+          <label>
+            <strong>Item Name:</strong>
+            <input
+              type="text"
+              placeholder="Enter item name"
+              value={itemName}
+              onChange={(e) => setItemName(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            <strong>Description:</strong>
+            <textarea
+              placeholder="Enter item description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+            ></textarea>
+          </label>
+        </div>
+        <div>
+          <label>
+            <strong>Starting Bid (₹):</strong> {/* Display in INR */}
+            <input
+              type="number"
+              placeholder="Enter starting bid"
+              value={startingBid}
+              onChange={(e) => setStartingBid(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            <strong>Closing Time (IST):</strong> {/* Display in IST */}
+            <input
+              type="datetime-local"
+              value={closingTime}
+              onChange={(e) => setClosingTime(e.target.value)}
+              required
+            />
+          </label>
+        </div>
         <button type="submit">Post Auction</button>
       </form>
     </div>

@@ -1,5 +1,5 @@
 const express = require('express');
-const { AuctionItem } = require('../models'); // Import AuctionItem model from models.js
+const { AuctionItem } = require('../models/models');
 const authenticate = require('../middleware/authenticate');
 
 const router = express.Router();
@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/bid/:id', authenticate, async (req, res) => {
   try {
     const { id } = req.params;
-    const { bid } = req.body;
+    const { bid, username } = req.body;
     const item = await AuctionItem.findById(id);
 
     if (!item) return res.status(404).json({ message: 'Auction item not found' });
@@ -22,7 +22,7 @@ router.post('/bid/:id', authenticate, async (req, res) => {
 
     if (bid > item.currentBid) {
       item.currentBid = bid;
-      item.highestBidder = req.user.username;
+      item.highestBidder = username;
       await item.save();
       res.json({ message: 'Bid successful', item });
     } else {
